@@ -1,6 +1,11 @@
 # The directory 'configs' contains my dotfiles and configs for a linux environment.
 
-## They can be installed by the following rake commands:
+## Checkout git submodules
+
+    git submodule init
+    git submodule update
+
+## Dotfiles can be installed by the following rake commands:
 
     rake -T # to see tasks
     rake install # to install configs
@@ -12,6 +17,6 @@
 
 ## Configs can be removed by a command similar to:
 
-    find /home/vagrant/ -lname '*.dotfiles*' -print0 | xargs -0 rm
+    find /home/ajh/ -lname '*.dotfiles*' -print0 | xargs -0 rm
 
 Just replace the -lname search which the dotfiles cloned directory
