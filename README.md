@@ -20,3 +20,9 @@
     find /home/ajh/ -lname '*.dotfiles*' -print0 | xargs -0 rm
 
 Just replace the -lname search which the dotfiles cloned directory
+
+# multiple github accounts
+
+To workaround issues where git cli need creds to multiple github accounts, try a command like below:
+
+	GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes' git push
