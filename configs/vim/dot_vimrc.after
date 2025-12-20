@@ -19,6 +19,7 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+set grepprg=rg\ --vimgrep\ --sort=path
 " }}}
 
 " Some shortcuts -------------------- {{{

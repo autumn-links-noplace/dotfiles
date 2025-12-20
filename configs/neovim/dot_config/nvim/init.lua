@@ -1,6 +1,7 @@
 require("config.lazy")
 
 vim.lsp.enable('pyright')
+vim.lsp.enable('jdtls')
 
 -- from https://neovide.dev/faq.html#how-can-i-use-cmd-ccmd-v-to-copy-and-paste
 if vim.g.neovide then
@@ -17,3 +18,14 @@ vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+
+vim.opt.grepprg = "rg --vimgrep --sort=path"
+
+-- Neotree
+vim.keymap.set('n', '<leader>/', ':Neotree toggle<CR>')
+vim.keymap.set('n', '<leader>|', ':Neotree reveal<CR>')
+vim.keymap.set('n', '<leader>b', ':Neotree toggle show buffers right<cr>')
+
+-- fzf-lua
+vim.keymap.set('n', '<C-P>', ':FzfLua files<CR>')
+vim.keymap.set('n', '<C-\\>', ':FzfLua buffers<CR>')
