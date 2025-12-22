@@ -28,4 +28,4 @@ vim.keymap.set('n', '<leader>b', ':Neotree toggle show buffers right<cr>')
 
 -- fzf-lua
 vim.keymap.set('n', '<C-P><C-P>', ':FzfLua files<CR>')
-vim.keymap.set('n', '<C-P<C-U>', ':FzfLua buffers<CR>')
+vim.keymap.set('n', '<C-P><C-U>', ':FzfLua buffers<CR>')
