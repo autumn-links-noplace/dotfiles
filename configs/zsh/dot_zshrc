@@ -37,3 +37,7 @@ HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 if [ -d "$HOME/.zsh.d/after" ]; then
   for z in $HOME/.zsh.d/after/*.zsh(n); do source $z; done
 fi
+
+if [ -d "$HOME/.local/bin" ]; then 
+  export PATH=$HOME/.local/bin:$PATH
+fi
