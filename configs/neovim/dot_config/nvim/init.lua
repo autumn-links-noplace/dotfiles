@@ -20,12 +20,3 @@ vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true}
 vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 
 vim.opt.grepprg = "rg --vimgrep --sort=path"
-
--- Neotree
-vim.keymap.set('n', '<leader>/', ':Neotree toggle<CR>')
-vim.keymap.set('n', '<leader>|', ':Neotree reveal<CR>')
-vim.keymap.set('n', '<leader>b', ':Neotree toggle show buffers right<cr>')
-
--- fzf-lua
-vim.keymap.set('n', '<C-P><C-P>', ':FzfLua files<CR>')
-vim.keymap.set('n', '<C-P><C-U>', ':FzfLua buffers<CR>')
