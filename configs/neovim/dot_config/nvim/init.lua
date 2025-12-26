@@ -1,8 +1,5 @@
 require("config.lazy")
 
-vim.lsp.enable('pyright')
-vim.lsp.enable('jdtls')
-
 -- from https://neovide.dev/faq.html#how-can-i-use-cmd-ccmd-v-to-copy-and-paste
 if vim.g.neovide then
   vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save
