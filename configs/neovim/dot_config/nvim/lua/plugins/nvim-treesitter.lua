@@ -1,32 +1,41 @@
  return {
     "nvim-treesitter/nvim-treesitter",
-    build = function()
-        require("nvim-treesitter.install").update({ with_sync = true })()
-    end,
-    config = function () 
-      local configs = require("nvim-treesitter.configs")
+    lazy = false,
+    build = ":TSUpdate",
+    config = function()
+      -- Install parsers for the languages we want
+      require('nvim-treesitter').install({
+        'c',
+        'css',
+        'go',
+        'html',
+        'java',
+        'javascript',
+        'lua',
+        'markdown',
+        'markdown_inline',
+        'python',
+        'ruby',
+        'rust',
+        'typescript',
+        'vim',
+        'vimdoc',
+      })
 
-      configs.setup({
-          ensure_installed = { 
-		  "c",
-		  "css", 
-		  "go", 
-		  "html", 
-		  "java",
-		  "javascript", 
-		  "lua", 
-		  "markdown",
-		  "markdown_inline",
-		  "python",
-		  "ruby",
-		  "rust", 
-		  "typescript",
-		  "vim", 
-		  "vimdoc", 
-	  },
-          sync_install = false,
-          highlight = { enable = true },
-          indent = { enable = true },  
-        })
+      -- Enable treesitter highlighting for all filetypes
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'c', 'css', 'go', 'html', 'java', 'javascript', 'lua', 'markdown', 'python', 'ruby', 'rust', 'typescript', 'vim' },
+        callback = function()
+          vim.treesitter.start()
+        end,
+      })
+
+      -- Enable treesitter indentation (experimental)
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'c', 'css', 'go', 'html', 'java', 'javascript', 'lua', 'markdown', 'python', 'ruby', 'rust', 'typescript', 'vim' },
+        callback = function()
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
     end
 }
