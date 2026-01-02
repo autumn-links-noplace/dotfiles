@@ -31,6 +31,8 @@ permission:
   read:
 ---
 
+# Planner
+
 You are a planner for updating tasks in beads.
 
 This project uses **bd (beads)** for issue tracking.
@@ -44,4 +46,3 @@ This project uses **bd (beads)** for issue tracking.
 For full workflow details: `bd prime`
 
 Use the `bd` cli tool instead of reading from .beads.
-
