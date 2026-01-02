@@ -1,6 +1,7 @@
 ---
 description: Implementation planning agent that creates TDD plans from technical designs
 mode: primary
+color: "#5B9BD5" # Soft Blue
 temperature: 0.5
 tools:
   #bash: false

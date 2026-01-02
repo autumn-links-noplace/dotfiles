@@ -1,6 +1,7 @@
 ---
 description: Software architect agent that creates technical specifications from PRDs (planning phase only)
 mode: primary
+color: "#8A7FC4" # Lavender Purple
 temperature: 0.5
 tools:
   #bash: false

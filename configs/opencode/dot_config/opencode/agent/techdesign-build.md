@@ -1,6 +1,7 @@
 ---
 description: Software engineer agent that implements code from technical design specifications
 mode: primary
+color: "#E74C3C" # Crimson Red
 temperature: 0.3
 tools:
   write: true

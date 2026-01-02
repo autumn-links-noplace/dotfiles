@@ -3,5 +3,10 @@
   "instructions": ["AGENT.md"],
   "permission": {
     "external_directory": "ask"
+  },
+  "agent": {
+    "general": {
+      "disable": true
+    }
   }
 }

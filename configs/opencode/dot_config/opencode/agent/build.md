@@ -1,5 +1,6 @@
 ---
 mode: primary
+color: "#FF6347" # Tomato Red
 permission:
   bash:
     # File/Directory inspection - allow

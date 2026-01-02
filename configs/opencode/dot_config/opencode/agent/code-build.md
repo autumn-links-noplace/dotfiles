@@ -1,6 +1,7 @@
 ---
 description: TDD implementation agent that writes code from implementation plans
 mode: primary
+color: "#FF8C42" # Mango Orange
 temperature: 0.3
 tools:
   write: true
