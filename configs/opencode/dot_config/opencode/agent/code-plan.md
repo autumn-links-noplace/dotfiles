@@ -3,7 +3,7 @@ description: Implementation planning agent that creates TDD plans from technical
 mode: primary
 temperature: 0.5
 tools:
-  bash: false
+  #bash: false
   edit: false
   patch: false
   write: false

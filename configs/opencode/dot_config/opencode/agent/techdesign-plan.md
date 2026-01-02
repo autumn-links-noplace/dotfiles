@@ -3,7 +3,7 @@ description: Software architect agent that creates technical specifications from
 mode: primary
 temperature: 0.5
 tools:
-  bash: false
+  #bash: false
   edit: false
   patch: false
   write: false
