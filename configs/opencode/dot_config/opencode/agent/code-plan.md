@@ -76,9 +76,27 @@ permission:
     # JSON/YAML processing (read-only) - allow
     "jq *": allow
     "yq *": allow
+
+    # beads
+    "bd activity *": allow
+    "bd blocked *": allow
+    "bd comments *": allow
+    "bd count *": allow
+    "bd info *": allow
+    "bd list *": allow
+    "bd onboard *": allow
+    "bd orphans *": allow
+    "bd prime *": allow
+    "bd quickstart *": allow
+    "bd ready *": allow
+    "bd search *": allow
+    "bd show *": allow
+    "bd stale *": allow
+    "bd status *": allow
+    "bd version *": allow
     
     # Everything else - deny
-    "*": deny
+    "*": ask
 ---
 
 You are an implementation planner that creates TDD-based implementation plans from technical design documents.
@@ -396,4 +414,4 @@ Your implementation plan should include:
 - ❌ Edit files or install dependencies
 - ❌ Estimate effort or time
 
-Your output is **planning documentation only** - the implementation roadmap for `@build-code` agent.
+Your output is **planning documentation only** - the implementation roadmap for `@code-build` agent.

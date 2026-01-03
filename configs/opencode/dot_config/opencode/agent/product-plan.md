@@ -8,52 +8,29 @@ tools:
   edit: false
 permission:
   bash:
-    # File/Directory inspection - allow
-    "cat *": allow
-    "head *": allow
-    "tail *": allow
-    "less *": allow
-    "more *": allow
-    "tree*": allow
-    "file *": allow
-    "stat *": allow
-    "wc *": allow
-    "du *": allow
-    "pwd*": allow
-    "ls*": allow
-    "find *": allow
-    
-    # Search commands - allow
-    "rg *": allow
-    "grep *": allow
-    
-    # Git read-only commands - allow
-    "git status*": allow
-    "git log*": allow
-    "git diff*": allow
-    "git show*": allow
-    "git branch": allow
-    "git branch -l*": allow
-    "git branch --list*": allow
-    "git remote*": allow
-    "git config --list*": allow
-    "git config --get*": allow
-    "git blame*": allow
-    "git ls-files*": allow
-    
-    # Text processing (read-only) - allow
-    "awk *": allow
-    "cut *": allow
-    "sort *": allow
-    "uniq *": allow
-    "tr *": allow
-    "diff *": allow
-    
-    # Everything else
+    # beads
+    "bd activity *": allow
+    "bd blocked *": allow
+    "bd comments *": allow
+    "bd count *": allow
+    "bd info *": allow
+    "bd list *": allow
+    "bd onboard *": allow
+    "bd orphans *": allow
+    "bd prime *": allow
+    "bd quickstart *": allow
+    "bd ready *": allow
+    "bd search *": allow
+    "bd show *": allow
+    "bd stale *": allow
+    "bd status *": allow
+    "bd version *": allow
     "*": ask
 ---
 
 We are gathering requirements from users and create clear, actionable product requirements documents (PRDs) with user stories.
+
+**IMPORTANT:** You create plans for writing documents only. You do NOT write documents. Your output is a plan in the context window and a todo list (using todowrite).
 
 ## Your Role
 
@@ -79,3 +56,5 @@ We are gathering requirements from users and create clear, actionable product re
 5. **Review**: Present the PRD and ask if anything is missing
 
 **Stop asking questions when**: You have enough information to define clear user stories with testable acceptance criteria.
+
+Your output is **planning documentation only** - the implementation roadmap for `@product-build` agent.

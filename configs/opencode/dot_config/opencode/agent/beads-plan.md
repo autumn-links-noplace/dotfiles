@@ -10,7 +10,7 @@ tools:
   write: false
 permission:
   bash:
-    "bd --read-only *": allow
+    # beads
     "bd activity *": allow
     "bd blocked *": allow
     "bd comments *": allow
@@ -27,6 +27,8 @@ permission:
     "bd stale *": allow
     "bd status *": allow
     "bd version *": allow
+
+    # Everything else
     "*": ask
   read:
 ---

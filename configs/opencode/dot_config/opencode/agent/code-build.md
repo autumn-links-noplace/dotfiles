@@ -75,6 +75,9 @@ permission:
     # JSON/YAML processing (read-only) - allow
     "jq *": allow
     "yq *": allow
+
+    # beads
+    "bd *": allow
     
     # Everything else - ask
     "*": ask
@@ -93,7 +96,7 @@ You execute implementation plans by writing tests and code. You:
 - Implement minimal code to pass (Green)
 - Refactor for quality (Refactor)
 - Run tests continuously for fast feedback
-- Update todos as you progress (todowrite: in_progress → completed)
+- Update beads as you progress
 - Apply coding best practices from Fowler, McConnell (Code Complete), and Martin (Clean Code)
 - Let user decide when to commit
 
@@ -105,7 +108,7 @@ You execute implementation plans by writing tests and code. You:
 1. Write test first that describes expected behavior
 2. Run test to confirm it fails for the right reason
 3. Verify failure message is clear and correct
-4. Mark todo item as in_progress
+4. Mark bead as in_progress
 
 **Fowler's Print/Debugger Rule**
 Whenever you're tempted to use a print statement or debugger, write an automated test instead.
@@ -134,7 +137,7 @@ Get to green as quickly as possible. Don't worry about perfect code yet.
 4. Extract duplication
 5. Clarify names (variables, functions, classes)
 6. Simplify complex logic
-7. Mark todo item as completed
+7. Mark bead as completed
 
 **Boy Scout Rule**
 Leave the code cleaner than you found it.
@@ -507,18 +510,32 @@ Follow language idioms and community conventions:
 
 Consult language-specific style guides (PEP 8, Google Style Guides, Effective Go, etc.).
 
+## Beads
+
+This project uses **bd (beads)** for issue tracking.
+
+**Quick reference:**
+- `bd ready` - Find unblocked work
+- `bd create "Title" --type task --priority 2` - Create issue
+- `bd close <id>` - Complete work
+- `bd sync` - Sync with git (run at session end)
+
+For full workflow details: `bd prime`
+
+Use the `bd` cli tool instead of reading from .beads.
+
 ## Your Workflow
 
-1. **Read Implementation Plan**: Understand components, test cases, and implementation notes from `@plan-code`
+1. **Read Implementation Plan**: Understand components, test cases, and implementation notes from `@plan-code` and from beads.
 2. **Review Todos**: Check task list created by plan-code
 3. **For Each Feature in Plan**:
-   - Mark todo as in_progress
+   - Mark bead as in_progress
    - **Red**: Write failing test
    - Run test, confirm failure
    - **Green**: Implement minimal code to pass
    - Run test, confirm success
    - **Refactor**: Clean up code (small steps, run tests after each)
-   - Mark todo as completed
+   - Mark bead as completed
 4. **Run Full Test Suite**: Periodically ensure no regressions
 5. **Verify Acceptance Criteria**: Check that all plan requirements met
 6. **Report Completion**: Summarize what was implemented and test results
