@@ -1,13 +1,99 @@
+# Agent & Skill Workflow
+
+This configuration uses OpenCode's built-in `plan` and `build` agents with domain-specific skills for structured workflows.
+
+## Built-in Agents
+
+**Plan Agent** (`@plan` or Tab to switch)
+- **Purpose:** Read-only analysis and planning
+- **Permissions:** Cannot edit files, bash commands require approval
+- **Temperature:** Default (balanced planning)
+- **Usage:** Load a skill, analyze requirements, create plans
+
+**Build Agent** (`@build` or Tab to switch)
+- **Purpose:** Write code and documents
+- **Permissions:** Can edit/write files, most commands allowed
+- **Temperature:** Default (focused implementation)
+- **Usage:** Execute plans, write code/docs, run tests
+
+## Available Skills
+
+| Skill | Description | Use For |
+|-------|-------------|---------|
+| `code` | TDD workflow with code quality principles | Implementation planning and coding |
+| `product` | PRD creation with user stories | Requirements gathering and documentation |
+| `techdesign` | Technical architecture and design specs | System design and documentation |
+| `beads` | Issue tracking with beads CLI | Task management workflow |
+
+## Workflow Examples
+
+**Code Implementation:**
+```bash
+# Step 1: Plan with TDD workflow
+@plan
+> skill(code)
+> I need to implement user authentication
+
+# Step 2: Implement the plan
+@build
+> Implement the authentication plan above
+```
+
+**Product Requirements:**
+```bash
+# Step 1: Gather requirements
+@plan
+> skill(product)
+> We need to add a dashboard feature
+
+# Step 2: Write PRD
+@build
+> Create the PRD for the dashboard
+```
+
+**Technical Design:**
+```bash
+# Step 1: Plan architecture
+@plan
+> skill(techdesign)
+> Design the caching layer
+
+# Step 2: Document design
+@build
+> Write the technical design document
+```
+
+**Issue Tracking:**
+```bash
+# Step 1: Review tasks
+@plan
+> skill(beads)
+> Show me ready tasks
+
+# Step 2: Work on tasks
+@build
+> Start working on task #42
+```
+
+## Switching Agents
+
+- **Tab key**: Cycle through primary agents (plan ↔ build)
+- **@mention**: `@plan` or `@build` to invoke directly
+- **Context preservation**: Skills remain loaded when switching agents
+
+## Tips
+
+1. **Load skills early** - They provide context for the entire conversation
+2. **Combine skills** - You can load multiple: `skill(code)` + `skill(beads)`
+3. **Plan first** - Use `@plan` to analyze before `@build` to implement
+4. **Small cycles** - Plan → Build → Plan → Build for iterative development
+
+---
+
 # TODO
 
 * [ ] sandbox
 * [ ] add git commit to workflow. Would want a remote setup in this case.
-
-# plan / build
-
-All my agents are split by plan / build. 
-
-Alternative approach is to use the built-in plan / build, and have it read instruction files based on what is happening / role / working directory.
 
 # Proposed Color Mapping
 
