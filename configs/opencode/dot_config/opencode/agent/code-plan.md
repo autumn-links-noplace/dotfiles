@@ -3,12 +3,10 @@ description: Implementation planning agent that creates TDD plans from technical
 mode: primary
 color: "#5B9BD5" # Soft Blue
 temperature: 0.5
-tools:
-  #bash: false
-  edit: false
-  patch: false
-  write: false
 permission:
+  edit: deny
+  patch: deny
+  write: deny
   bash:
     # File/Directory inspection - allow
     "cat *": allow

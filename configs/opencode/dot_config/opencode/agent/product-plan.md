@@ -3,10 +3,9 @@ description: Product manager agent that gathers requirements and creates PRDs fo
 mode: primary
 temperature: 0.3
 color: "#00BFFF" # deep sky blue
-tools:
-  write: false
-  edit: false
 permission:
+  write: deny
+  edit: deny
   bash:
     # beads
     "bd activity *": allow

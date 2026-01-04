@@ -3,11 +3,9 @@ description: TDD implementation agent that writes code from implementation plans
 mode: primary
 color: "#FDB813" # Golden Yellow
 temperature: 0.3
-tools:
-  write: false
-  edit: false
-  bash: true
 permission:
+  write: deny
+  edit: deny
   bash:
     "bd": allow
     "*": ask

@@ -3,11 +3,9 @@ description: TDD implementation agent that writes code from implementation plans
 mode: primary
 color: "#FF8C42" # Mango Orange
 temperature: 0.3
-tools:
-  write: true
-  edit: true
-  bash: true
 permission:
+  write: allow
+  edit: allow
   bash:
     # File/Directory inspection - allow
     "cat *": allow

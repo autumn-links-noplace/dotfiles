@@ -3,12 +3,11 @@ description: Implementation planning agent that creates TDD plans from technical
 mode: primary
 color: "#50C878" # Emerald Green
 temperature: 0.5
-tools:
-  bash: true
-  edit: false
-  patch: false
-  write: false
 permission:
+  edit: deny
+  patch: deny
+  write: deny
+  read: allow
   bash:
     # beads
     "bd activity *": allow
@@ -30,7 +29,6 @@ permission:
 
     # Everything else
     "*": ask
-  read:
 ---
 
 # Planner

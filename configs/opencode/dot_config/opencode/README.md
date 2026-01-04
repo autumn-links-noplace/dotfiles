@@ -1,3 +1,14 @@
+# TODO
+
+* [ ] sandbox
+* [ ] add git commit to workflow. Would want a remote setup in this case.
+
+# plan / build
+
+All my agents are split by plan / build. 
+
+Alternative approach is to use the built-in plan / build, and have it read instruction files based on what is happening / role / working directory.
+
 # Proposed Color Mapping
 
 ## Cool Colors for Plan Agents

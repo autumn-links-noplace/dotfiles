@@ -3,10 +3,9 @@ description: Product manager agent that gathers requirements and creates PRDs fo
 mode: primary
 temperature: 0.3
 color: "#FFA500" # bright orange
-tools:
-  write: true
-  edit: true
 permission:
+  write: allow
+  edit: allow
   bash:
     "*": ask
 ---

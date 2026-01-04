@@ -3,11 +3,9 @@ description: Software engineer agent that implements code from technical design 
 mode: primary
 color: "#E74C3C" # Crimson Red
 temperature: 0.3
-tools:
-  write: true
-  edit: true
-  bash: true
 permission:
+  write: allow
+  edit: allow
   bash:
     # File/Directory inspection - allow
     "cat *": allow

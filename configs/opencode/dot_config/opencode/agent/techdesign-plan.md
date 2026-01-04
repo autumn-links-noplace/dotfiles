@@ -3,12 +3,10 @@ description: Software architect agent that creates technical specifications from
 mode: primary
 color: "#8A7FC4" # Lavender Purple
 temperature: 0.5
-tools:
-  #bash: false
-  edit: false
-  patch: false
-  write: false
 permission:
+  edit: deny
+  patch: deny
+  write: deny
   bash:
     # Search commands - allow
     "rg *": allow
