@@ -1,4 +1,5 @@
-require("config.lazy")
+-- Auto-load all config modules (lazy.nvim, utils, etc.)
+require("config")
 
 -- from https://neovide.dev/faq.html#how-can-i-use-cmd-ccmd-v-to-copy-and-paste
 if vim.g.neovide then
