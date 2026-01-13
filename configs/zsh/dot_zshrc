@@ -1,4 +1,7 @@
-# source "before' config files
+# Load order: "before" scripts are sourced alphabetically before oh-my-zsh
+# Use two-digit prefixes (00-99) to control load order
+# The (n) glob qualifier enables NUMERIC_GLOB_SORT for proper ordering
+# Example: 00_base.zsh loads before 50_tools.zsh
 if [ -d "$HOME/.zsh.d/before" ]; then
   for z in $HOME/.zsh.d/before/*.zsh(n); do source $z; done
 fi
@@ -33,7 +36,11 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
-# source "after" config files
+# Load order: "after" scripts are sourced alphabetically after oh-my-zsh
+# Use two-digit prefixes (00-99) to control load order
+# The (n) glob qualifier enables NUMERIC_GLOB_SORT for proper ordering
+# Tool managers (homebrew, mise, etc.) should load early (00-19)
+# so their binaries are available for later scripts
 if [ -d "$HOME/.zsh.d/after" ]; then
   for z in $HOME/.zsh.d/after/*.zsh(n); do source $z; done
 fi
