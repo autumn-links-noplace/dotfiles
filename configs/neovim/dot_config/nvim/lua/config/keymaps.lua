@@ -1,0 +1,128 @@
+-- ============================================================================
+-- [ AND ] NAMESPACE ANALYSIS
+-- ============================================================================
+--
+-- TIER 1: Highly Available (Best Choices)
+--   Lowercase:
+--     [j / ]j  ✅  FREE - Excellent choice
+--     [k / ]k  ✅  FREE - Excellent choice  
+--     [v / ]v  ✅  FREE - Excellent choice
+--
+--   Uppercase (19 keys available):
+--     [A ]A  [C ]C  [D ]D  [E ]E  [F ]F  [G ]G  [H ]H  [I ]I  [J ]J
+--     [K ]K  [N ]N  [O ]O  [R ]R  [U ]U  [V ]V  [W ]W  [X ]X  [Y ]Y  [Z ]Z
+--
+-- TIER 2: Mostly Available (Good Choices)
+--     [n / ]n  ⚡  Mostly free (rare: conflict markers)
+--     [r / ]r  ⚡  Mostly free (rare: LSP references)
+--     [u / ]u  ⚡  Free if not using vim-unimpaired
+--     [x / ]x  ⚡  Free if not using vim-unimpaired
+--     [y / ]y  ⚡  Free if not using vim-unimpaired
+--     [g / ]g  ⚡  Free if not using git conflict navigation
+--
+-- TIER 3: Context-Dependent
+--     [a / ]a  ⚡  Free if not using treesitter arguments
+--     [i / ]i  ⚡  Free if not using treesitter conditionals
+--     [o / ]o  ⚡  Free if not using treesitter loops
+--
+-- AVOID: Taken or Very Common
+--   Built-in Vim/Neovim:
+--     [c ]c  [f ]f  [m ]m  [p ]p  [s ]s  [z ]z
+--     [M ]M  [P ]P  [S ]S
+--     [[ ]] [] ][ [( ]) [{ ]} [' ]' [` ]`
+--     [# ]# [* ]* [/ ]/ [<Space> ]<Space> [<Tab> ]<Tab>
+--
+--   Very Common Plugins:
+--     [b ]b  [d ]d  [e ]e  [h ]h  [l ]l  [q ]q  [t ]t  [w ]w
+--     [B ]B  [L ]L  [Q ]Q  [T ]T
+--
+-- Pattern Observations:
+--   - `[` = backward/previous, `]` = forward/next
+--   - Lowercase = step-by-step movement
+--   - Uppercase = boundaries/edges (vim-unimpaired pattern)
+--   - LSP/diagnostics: d e w (diagnostics, errors, warnings)
+--   - Git: c h g (changes, hunks, git)
+--   - Lists: q l (quickfix, location)
+--   - Navigation: b t (buffers, tabs)
+--   - Treesitter: m c o i a (methods, classes, loops, conditionals, arguments)
+--
+-- ============================================================================
+-- CUSTOM KEYMAPS
+-- ============================================================================
+--
+-- Semantic sibling navigation using tree-sitter
+-- Navigate between sibling nodes at the same tree level
+-- 
+-- Works in all tree-sitter enabled languages:
+-- - Code: function parameters, class methods, if/else branches
+-- - Text: list items, paragraphs, headings at same level
+--
+-- QUICK REFERENCE:
+--
+-- SEMANTIC NAVIGATION (anywhere in file):
+--   ]m [m    Next/previous function
+--   ]c [c    Next/previous class
+--   ]o [o    Next/previous loop
+--   ]i [i    Next/previous conditional
+--
+-- SIBLING NAVIGATION (same tree level):
+--   ]S [S    Last/first sibling (boundaries)
+--   ]s [s    Next/previous sibling (step-by-step)  ⚠️  CONFLICTS WITH SPELL CHECK
+--
+-- EXISTING (aerial.nvim):
+--   { }      Previous/next document symbol
+--   <leader>a Toggle outline window
+
+--local ts_utils = require('nvim-treesitter.ts_utils')
+--
+---- Jump to first sibling (boundary)
+--vim.keymap.set("n", "[S", function()
+--  local node = ts_utils.get_node_at_cursor()
+--  if node then
+--    local first_sibling = node
+--    while first_sibling:prev_named_sibling() do
+--      first_sibling = first_sibling:prev_named_sibling()
+--    end
+--    
+--    if first_sibling ~= node then
+--      ts_utils.goto_node(first_sibling)
+--    end
+--  end
+--end, { desc = "Jump to first sibling node" })
+--
+---- Jump to last sibling (boundary)
+--vim.keymap.set("n", "]S", function()
+--  local node = ts_utils.get_node_at_cursor()
+--  if node then
+--    local last_sibling = node
+--    while last_sibling:next_named_sibling() do
+--      last_sibling = last_sibling:next_named_sibling()
+--    end
+--    
+--    if last_sibling ~= node then
+--      ts_utils.goto_node(last_sibling)
+--    end
+--  end
+--end, { desc = "Jump to last sibling node" })
+--
+---- Jump to previous sibling (step-by-step)
+--vim.keymap.set("n", "[s", function()
+--  local node = ts_utils.get_node_at_cursor()
+--  if node then
+--    local prev = node:prev_named_sibling()
+--    if prev then
+--      ts_utils.goto_node(prev)
+--    end
+--  end
+--end, { desc = "Jump to previous sibling node" })
+--
+---- Jump to next sibling (step-by-step)
+--vim.keymap.set("n", "]s", function()
+--  local node = ts_utils.get_node_at_cursor()
+--  if node then
+--    local next = node:next_named_sibling()
+--    if next then
+--      ts_utils.goto_node(next)
+--    end
+--  end
+--end, { desc = "Jump to next sibling node" })

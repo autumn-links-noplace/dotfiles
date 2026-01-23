@@ -1,0 +1,56 @@
+--return {
+--  "nvim-treesitter/nvim-treesitter-textobjects",
+--  branch = "main",
+--  init = function()
+--    -- Disable built-in ftplugin mappings to avoid conflicts
+--    -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin
+--    vim.g.no_plugin_maps = true
+--  end,
+--  config = function()
+--    -- Configure nvim-treesitter-textobjects (main branch API)
+--    require("nvim-treesitter-textobjects").setup {
+--      move = {
+--        set_jumps = true,  -- Add to jumplist for <C-o>/<C-i> navigation
+--      },
+--    }
+--    
+--    -- Define movement keymaps using the new API
+--    local move = require("nvim-treesitter-textobjects.move")
+--    
+--    -- Next/previous function
+--    vim.keymap.set({ "n", "x", "o" }, "]m", function()
+--      move.goto_next_start("@function.outer", "textobjects")
+--    end, { desc = "Next function start" })
+--    
+--    vim.keymap.set({ "n", "x", "o" }, "[m", function()
+--      move.goto_previous_start("@function.outer", "textobjects")
+--    end, { desc = "Previous function start" })
+--    
+--    -- Next/previous class
+--    vim.keymap.set({ "n", "x", "o" }, "]c", function()
+--      move.goto_next_start("@class.outer", "textobjects")
+--    end, { desc = "Next class start" })
+--    
+--    vim.keymap.set({ "n", "x", "o" }, "[c", function()
+--      move.goto_previous_start("@class.outer", "textobjects")
+--    end, { desc = "Previous class start" })
+--    
+--    -- Next/previous loop
+--    vim.keymap.set({ "n", "x", "o" }, "]o", function()
+--      move.goto_next_start("@loop.outer", "textobjects")
+--    end, { desc = "Next loop start" })
+--    
+--    vim.keymap.set({ "n", "x", "o" }, "[o", function()
+--      move.goto_previous_start("@loop.outer", "textobjects")
+--    end, { desc = "Previous loop start" })
+--    
+--    -- Next/previous conditional
+--    vim.keymap.set({ "n", "x", "o" }, "]i", function()
+--      move.goto_next_start("@conditional.outer", "textobjects")
+--    end, { desc = "Next conditional start" })
+--    
+--    vim.keymap.set({ "n", "x", "o" }, "[i", function()
+--      move.goto_previous_start("@conditional.outer", "textobjects")
+--    end, { desc = "Previous conditional start" })
+--  end,
+--}
