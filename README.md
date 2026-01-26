@@ -1,4 +1,24 @@
 # The directory 'configs' contains my dotfiles and configs for a linux environment.
+ 
+## Tmux panes — usage
+
+This repository provides pane keybindings in `configs/tmux/dot_tmux.conf`.
+Common pane commands (use your tmux prefix, default `C-b`):
+- `Prefix + |` : `split-window -h` (left/right split)
+- `Prefix + -` : `split-window -v` (top/bottom split)
+- `Prefix + h/j/k/l` : move focus L/D/U/R (vim-style)
+- `Prefix + H/J/K/L` (holdable) : resize pane by 5 cells (L/D/U/R)
+
+Quick examples:
+- To make a horizontal split: press `Prefix` then `|`.
+- Jump between panes: `Prefix + h` or `Prefix + l`.
+- Resize while holding: repeatedly press `Prefix + L` to widen.
+
+Tips:
+- Windows are numbered from 1 (`set -g base-index 1`).
+- Enable vim-tmux-navigator mappings for direct `C-h/j/k/l` navigation from vim.
+- Check active prefix at runtime: `tmux show -g prefix`.
+- Reload tmux config: `tmux source-file ~/.tmux.conf` or restart tmux.
 
 ## Checkout git submodules
 
