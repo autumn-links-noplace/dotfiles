@@ -69,6 +69,11 @@ A comprehensive guide to available keys in the `[` and `]` namespace for custom 
 - In Neovim it uses `:TmuxNavigate*` (moves within splits first; at an edge it tells tmux to `select-pane`).
 - In tmux non-vim panes it uses a tmux key-table (`C-w` enters nav mode; `h/j/k/l` selects pane).
 
+### Clipboard (tmux/SSH)
+
+- Copy to your local system clipboard from inside Neovim: `"+y` (and paste with `"+p`).
+- When running in tmux or over SSH, Neovim is configured to use the built-in OSC52 clipboard provider.
+
 ### Semantic Navigation (nvim-treesitter-textobjects)
 
 **Navigate anywhere in file:**
@@ -121,11 +126,12 @@ Works in all tree-sitter enabled languages:
 ## Configuration Structure
 
 ```
-lua/
-├── config/
-│   ├── init.lua        # Auto-loads all config modules
-│   ├── lazy.lua        # Lazy.nvim plugin manager setup
-│   └── trim.lua        # Whitespace trimming utilities
+ lua/
+ ├── config/
+ │   ├── init.lua        # Auto-loads all config modules
+ │   ├── clipboard.lua   # OSC52 clipboard in tmux/SSH
+ │   ├── lazy.lua        # Lazy.nvim plugin manager setup
+ │   └── trim.lua        # Whitespace trimming utilities
 ├── plugins/
 │   ├── nvim-treesitter.lua
 │   ├── nvim-treesitter-textobjects.lua  # Navigation keybindings defined here
@@ -137,7 +143,7 @@ lua/
 │   ├── tokyonight.lua
 │   ├── vim-tmux-navigator.lua
 │   └── which-key.lua
-└── init.lua           # Entry point
-```
+ └── init.lua           # Entry point
+ ```
 
 All keybindings that depend on plugins should be defined in the respective plugin's config file to ensure proper load order.
