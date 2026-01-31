@@ -63,6 +63,12 @@ A comprehensive guide to available keys in the `[` and `]` namespace for custom 
 
 ## Current Keybindings
 
+### Tmux + Neovim Pane Navigation
+
+- `Ctrl-w` then `h/j/k/l` moves left/down/up/right across Neovim splits and tmux panes.
+- In Neovim it uses `:TmuxNavigate*` (moves within splits first; at an edge it tells tmux to `select-pane`).
+- In tmux non-vim panes it uses a tmux key-table (`C-w` enters nav mode; `h/j/k/l` selects pane).
+
 ### Semantic Navigation (nvim-treesitter-textobjects)
 
 **Navigate anywhere in file:**
@@ -129,6 +135,7 @@ lua/
 │   ├── lsp.lua
 │   ├── neo-tree.nvim.lua
 │   ├── tokyonight.lua
+│   ├── vim-tmux-navigator.lua
 │   └── which-key.lua
 └── init.lua           # Entry point
 ```
