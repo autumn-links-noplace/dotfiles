@@ -1,0 +1,4 @@
+#!/bin/bash
+# Encodes stdin to base64
+DATA=$(base64 | tr -d '\n')
+printf "\033]52;c;$DATA\007"

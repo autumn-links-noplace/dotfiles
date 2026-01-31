@@ -46,3 +46,17 @@ Just replace the -lname search which the dotfiles cloned directory
 To workaround issues where git cli need creds to multiple github accounts, try a command like below:
 
 	GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes' git push
+
+# ghostty + ssh + tmux clipboard
+
+in ghostty config
+```
+clipboard-write = allow
+clipboard-read = allow
+copy-on-select = clipboard
+```
+
+From remote computer, install terminfo for ghostty
+```
+infocmp -x xterm-ghostty | ssh ajh@192.168.x.x -- tic -x -
+```
