@@ -1,12 +1,12 @@
 ---
-name: techdesign
-description: Technical architecture and design specification creation following Clean Architecture and design principles
+name: techspec
+description: How to write a Compass Tech Spec
 license: MIT
 compatibility: opencode
 metadata:
-  workflow: architecture
+  workflow: architecture,document
   audience: architects,developers
-  principles: clean-architecture,vertical-slices,testing-pyramid
+  principles: clean-architecture,vertical-slices
 ---
 
 # Planning
