@@ -23,7 +23,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal({']c', bang = true})
           else
-            gs.nav_hunk('next')
+            gs.nav_hunk('next', { target = 'all' })
           end
         end, { desc = 'Next git hunk' })
 
@@ -31,7 +31,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal({'[c', bang = true})
           else
-            gs.nav_hunk('prev')
+            gs.nav_hunk('prev', { target = 'all' })
           end
         end, { desc = 'Previous git hunk' })
 
