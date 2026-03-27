@@ -2,7 +2,25 @@
   "$schema": "https://opencode.ai/config.json",
   "instructions": ["AGENT.md"],
   "permission": {
-    "external_directory": "ask"
+    "external_directory": "ask",
+    "bash": {
+      "jq *": "allow",
+      "yq *": "allow",
+      "echo": "allow",
+      "echo *": "allow",
+      "cat *": "allow",
+      "ls": "allow",
+      "ls *": "allow",
+      "grep *": "allow",
+      "rg *": "allow",
+      "find *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "wc *": "allow",
+      "cut *": "allow",
+      "sort *": "allow",
+      "uniq *": "allow"
+    }
   },
   "agent": {
     "general": {

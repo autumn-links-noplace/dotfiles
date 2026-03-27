@@ -7,6 +7,9 @@ function M.setup()
   if vim.env.SSH_TTY or vim.env.TMUX then
     vim.g.clipboard = "osc52"
   end
+
+  -- Copy selection to system clipboard
+  vim.keymap.set('v', '<leader>y', '"+y')
 end
 
 return M
