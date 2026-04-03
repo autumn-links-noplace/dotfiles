@@ -8,8 +8,9 @@ function M.setup()
     vim.g.clipboard = "osc52"
   end
 
-  -- Copy selection to system clipboard
-  vim.keymap.set('v', '<leader>y', '"+y')
+  -- Copy to system clipboard
+  vim.keymap.set('n', '<leader>y', '"+yy') -- current line
+  vim.keymap.set('v', '<leader>y', '"+y')  -- selection
 end
 
 return M
