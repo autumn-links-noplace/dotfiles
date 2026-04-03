@@ -13,6 +13,9 @@ set wildmode=list:longest
 set background=dark
 "colorscheme solarized
 
+"enable mouse in all modes (matches neovim default)
+set mouse=a
+
 "setup folding for vim files
 augroup filetype_vim
     autocmd!
@@ -29,6 +32,10 @@ set grepprg=rg\ --vimgrep\ --sort=path
 " * it is mostly useful with portrait monitors, which I'm not using lately
 "noremap <C-K> 10k
 "noremap <C-J> 10j
+
+" Copy to system clipboard
+nnoremap <leader>y "+yy
+vnoremap <leader>y "+y
 
 " }}}
 
